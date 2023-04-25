@@ -10,9 +10,9 @@ bind_addr = "0.0.0.0"
 
 advertise {
   # Defaults to the first private IP address.
-  http = "10.x.x.x" # must be reachable by Nomad CLI clients
-  rpc  = "10.x.x.x" # must be reachable by Nomad client nodes
-  serf = "10.x.x.x" # must be reachable by Nomad server nodes
+  http = "192.168.1.228" # must be reachable by Nomad CLI clients
+  rpc  = "192.168.1.228" # must be reachable by Nomad client nodes
+  serf = "192.168.1.228" # must be reachable by Nomad server nodes
 }
 
 ports {
@@ -23,8 +23,8 @@ ports {
 
 # TLS configurations
 tls {
-  http = true
-  rpc  = true
+  http = false
+  rpc  = false
 
   ca_file   = "/etc/certs/ca.crt"
   cert_file = "/etc/certs/nomad.crt"
@@ -66,15 +66,15 @@ acl {
 }
 
 # [optional] Specifies configuration for connecting to Consul
-consul { 
-  address = "consul.example.com:8500"
-  ssl = true
-  verify_server_hostname = true
-}
+# consul { 
+#   address = "consul.example.com:8500"
+#   ssl = true
+#   # verify_server_hostname = true
+# }
 
 # [optional] Specifies configuration for connecting to Vault
-vault {
-  enabled     = true
-  address     = "https://vault.example.com:8200"
-  create_from_role = "nomad-cluster"
-}
+# vault {
+#   enabled     = true
+#   address     = "https://vault.example.com:8200"
+#   create_from_role = "nomad-cluster"
+# }
