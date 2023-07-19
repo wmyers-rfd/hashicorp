@@ -49,5 +49,5 @@ server {
 
 # Client Configuration - Node can be Server & Client
 client {
-  enabled           = false
+  enabled           = true
 }
