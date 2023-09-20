@@ -56,15 +56,3 @@ client {
   }
 }
 
-task "java_example" {
-  driver = "exec"
-
-  config {
-    command = ""
-    args = ""
-  }
-
-  artifact {
-    source = 
-  }
-}
