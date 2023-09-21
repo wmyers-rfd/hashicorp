@@ -1,4 +1,5 @@
-name = "nomad_server_a"
+# Commented out server naming so that this config can be used for all nomad servers
+# name = "nomad_server_a"
 
 # Directory to store agent state
 data_dir = "/etc/nomad.d/data"
