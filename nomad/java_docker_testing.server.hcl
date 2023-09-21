@@ -41,3 +41,6 @@ server {
   }
 }
 
+client {
+  enabled          = false
+}

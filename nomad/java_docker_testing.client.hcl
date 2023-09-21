@@ -32,8 +32,16 @@ datacenter = "dc1"
 log_level = "INFO"
 log_file  = "/etc/nomad.d/java_docker_testing.client.log"
 
+server {
+  enabled       = false
+}
+
 client {
   enabled       = true
+
+  server_join {
+    retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-2"]
+  }
 
   chroot_env {
     "/bin" = "/bin"
