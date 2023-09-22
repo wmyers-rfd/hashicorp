@@ -48,12 +48,11 @@ client {
   }
   chroot_env {
     "/bin" = "/bin"
-    "/ete" = "/etc"
+    "/etc" = "/etc"
     "/lib" = " /lib"
-    "/11632" = " /11632"
-    "/lib64" = " /11b64"
+    "/lib64" = " /lib64"
     "/run/resolvconf" = "/run/resolvconf"
-    "Isbin" = " /sbin"
+    "/sbin" = " /sbin"
     "/usr" = " /usr"
     "/vagrant" = " /vagrant"
   }
