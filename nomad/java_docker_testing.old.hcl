@@ -1,5 +1,4 @@
-# Commented out server naming so that this config can be used for all nomad servers
-# name = "nomad_server_a"
+name = "nomad_server_a"
 
 # Directory to store agent state
 data_dir = "/etc/nomad.d/data"
@@ -30,22 +29,20 @@ datacenter = "dc1"
 
 # Logging Configurations
 log_level = "INFO"
-log_file  = "/etc/nomad.d/java_docker_testing.client.log"
+log_file  = "/etc/nomad.d/java_docker_testing.nomad.log"
 
 server {
-  enabled       = false
+  enabled          = true
+  bootstrap_expect = 1
+
+  server_join {
+    retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-2"]
+  }
 }
 
 client {
   enabled       = true
 
-  server_join {
-    retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-2"]
-  }
-
-  options {
-    "driver.allowlist" = "docker,java"
-  }
   chroot_env {
     "/bin" = "/bin"
     "/ete" = "/etc"
@@ -59,3 +56,15 @@ client {
   }
 }
 
+task "java_example" {
+  driver = "exec"
+
+  config {
+    command = ""
+    args = ""
+  }
+
+  artifact {
+    source = 
+  }
+}
