@@ -5,7 +5,6 @@ job "easytravel" {
     task "weblauncher" {
       driver = "java"
       config {
-        # TODO - Figure out if this is the actual class 
         class = "com.dynatrace.easytravel.weblauncher"
         class_path = "${EASYTRAVEL_HOME}/resources:${EASYTRAVEL_HOME}/com.dynatrace.easytravel.weblauncher.jar"
         args = [
@@ -16,12 +15,13 @@ job "easytravel" {
         ]
       }
       artifact {
-      # TODO - Add this the final jar
-        source = "https://github.com/membrane/service-proxy/releases/download/v4.7.3/membrane-service-proxy-4.7.3.zip"
+        source = "https://performance.rfdpoc.com/test/com.dynatrace.easytravel.weblauncher.jar"
+
       }
       env {
         EASYTRAVEL_HOME = "${NOMAD_TASK_DIR}/easytravel"
       }
+    }
     network {
       port "frontend" {
         static = 8094
