@@ -15,7 +15,7 @@ job "easytravel" {
         ]
       }
       artifact {
-        source = "https://performance.rfdpoc.com/test/com.dynatrace.easytravel.weblauncher.jar"
+        source = "http://com.rfdinc.performance.static.content.s3.amazonaws.com/test/com.dynatrace.easytravel.weblauncher.jar"
 
       }
       env {
