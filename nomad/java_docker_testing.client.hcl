@@ -54,7 +54,7 @@ client {
     "/run/resolvconf" = "/run/resolvconf"
     "/sbin" = "/sbin"
     "/usr" = "/usr"
-    "/vagrant" = "/vagrant"
+    "home/ec2-user/easytravel" = "/easytravel"
   }
 }
 
