@@ -2,14 +2,24 @@ job "easytravel" {
   datacenters = ["dc1"]
 
   group "weblauncher" {
+    network {
+      port "frontend" {
+        static = 8094
+      }
+
+      port "backend" {
+        static = 8095
+      }
+    }
     task "weblauncher" {
       driver = "java"
       config {
-        class = "com.dynatrace.easytravel.weblauncher"
-        class_path = "${EASYTRAVEL_HOME}/resources:${EASYTRAVEL_HOME}/com.dynatrace.easytravel.weblauncher.jar"
+        class = "com.dynatrace.easytravel.weblauncher.RunLauncherTomcat"
+        class_path = "easytravel/com.dynatrace.easytravel.weblauncher.jar"
+        jar_path = "easytravel/com.dynatrace.easytravel.weblauncher.jar"
         args = [
           "-Xmx768m",
-          "-Dcom.dynatrace.easytravel.install.dir.correction=../../easytravel/",
+          "-Dcom.dynatrace.easytravel.install.dir.correction=easytravel/",
           "-Dorg.eclipse.rap.rwt.enableUITests=true",
           "-Djava.security.auth.login.config=${EASYTRAVEL_HOME}/resources/login-module.config"
         ]
@@ -20,15 +30,6 @@ job "easytravel" {
       }
       env {
         EASYTRAVEL_HOME = "${NOMAD_TASK_DIR}/easytravel"
-      }
-    }
-    network {
-      port "frontend" {
-        static = 8094
-      }
-
-      port "backend" {
-        static = 8095
       }
     }
   }

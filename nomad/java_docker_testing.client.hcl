@@ -1,19 +1,25 @@
 # Commented out server naming so that this config can be used for all nomad servers
 # name = "nomad_server_a"
 
+log_level = "DEBUG"
+
 # Directory to store agent state
 data_dir = "/etc/nomad.d/data"
 
-bind_addr = "0.0.0.0" # the default
+bind_addr = "{{ GetInterfaceIP \"eth0\" }}" # the default
 
 advertise {
+  http = "{{ GetInterfaceIP \"eth0\" }}"
+  rpc  = "{{ GetInterfaceIP \"eth0\" }}"
+  serf = "{{ GetInterfaceIP \"eth0\" }}"
 }
 
-ports {
-  http = 4646
-  rpc  = 4647
-  serf = 4648
-}
+# Commented this out to align with TEA-provided Nomad server/client config
+# ports {
+#   http = 4646
+#   rpc  = 4647
+#   serf = 4648
+# }
 
 # TLS configurations
 tls {
