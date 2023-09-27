@@ -1,8 +1,6 @@
 # Commented out server naming so that this config can be used for all nomad servers
 # name = "nomad_server_a"
 
-log_level = "DEBUG"
-
 # Directory to store agent state
 data_dir = "/etc/nomad.d/data"
 
