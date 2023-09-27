@@ -59,6 +59,8 @@ client {
     "/sbin" = "/sbin"
     "/usr" = "/usr"
     "home/ec2-user/easytravel" = "/easytravel"
+    "/opt" = "/opt"
+    "/home/ec2-user/.dynaTrace" = "/.dynaTrace"
   }
 }
 
