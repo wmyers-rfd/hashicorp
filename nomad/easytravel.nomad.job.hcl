@@ -3,12 +3,13 @@ job "easytravel" {
 
   group "weblauncher" {
     network {
+      mode = "bridge"
       port "frontend" {
-        static = 8094
+        to = 8094
       }
 
       port "backend" {
-        static = 8095
+        to = 8095
       }
     }
     task "weblauncher" {
