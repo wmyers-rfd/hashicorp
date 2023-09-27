@@ -20,8 +20,8 @@ job "easytravel" {
           "-Xmx768m",
           "-Dcom.dynatrace.easytravel.install.dir.correction=easytravel/",
           "-Dorg.eclipse.rap.rwt.enableUITests=true",
-          "-Djava.security.auth.login.config=${EASYTRAVEL_HOME}/resources/login-module.config"
-          "-jar ../com.dynatrace.easytravel.weblauncher.jar",
+          "-Djava.security.auth.login.config=${EASYTRAVEL_HOME}/resources/login-module.config",
+          "-jar ../com.dynatrace.easytravel.weblauncher.jar"
         ]
       }
       artifact {
