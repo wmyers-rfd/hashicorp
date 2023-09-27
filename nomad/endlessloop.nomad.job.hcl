@@ -19,14 +19,5 @@ job "endlessloop_job" {
         EASYTRAVEL_HOME = "${NOMAD_TASK_DIR}/easytravel"
       }
     }
-    network {
-      port "frontend" {
-        static = 8094
-      }
-
-      port "backend" {
-        static = 8095
-      }
-    }
   }
 }
