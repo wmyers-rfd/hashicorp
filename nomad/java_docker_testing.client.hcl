@@ -48,19 +48,24 @@ client {
   }
 
   options {
-    "driver.allowlist" = "docker,java"
+    "driver.allowlist" = "docker,java,raw_exec"
+    "driver.raw_exec.enable" = "1"
   }
-  chroot_env {
-    "/bin" = "/bin"
-    "/etc" = "/etc"
-    "/lib" = "/lib"
-    "/lib64" = "/lib64"
-    "/run/resolvconf" = "/run/resolvconf"
-    "/sbin" = "/sbin"
-    "/usr" = "/usr"
-    "home/ec2-user/easytravel" = "/easytravel"
-    "/opt" = "/opt"
-    "/home/ec2-user/.dynaTrace" = "/.dynaTrace"
+  # chroot_env {
+  #   "/bin" = "/bin"
+  #   "/etc" = "/etc"
+  #   "/lib" = "/lib"
+  #   "/lib64" = "/lib64"
+  #   "/run/resolvconf" = "/run/resolvconf"
+  #   "/sbin" = "/sbin"
+  #   "/usr" = "/usr"
+  #   "home/ec2-user/easytravel" = "/easytravel"
+  #   "/opt" = "/opt"
+  #   "/home/ec2-user/.dynaTrace" = "/.dynaTrace"
+  # }
+}
+plugin "raw_exec" {
+  config {
+    enabled = true
   }
 }
-

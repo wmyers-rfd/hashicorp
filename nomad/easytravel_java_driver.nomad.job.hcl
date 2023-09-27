@@ -13,15 +13,16 @@ job "easytravel" {
       }
     }
     task "weblauncher" {
-      driver = "raw_exec"
+      driver = "java"
       config {
-        command = "/usr/bin/java"
+        class = "com.dynatrace.easytravel.weblauncher.RunLauncherTomcat"
+        class_path = "easytravel/com.dynatrace.easytravel.weblauncher.jar"
+        jar_path = "easytravel/com.dynatrace.easytravel.weblauncher.jar"
         args = [
           "-Xmx768m",
           "-Dcom.dynatrace.easytravel.install.dir.correction=easytravel/",
           "-Dorg.eclipse.rap.rwt.enableUITests=true",
           "-Djava.security.auth.login.config=${EASYTRAVEL_HOME}/resources/login-module.config"
-          "-jar ../com.dynatrace.easytravel.weblauncher.jar",
         ]
       }
       artifact {
