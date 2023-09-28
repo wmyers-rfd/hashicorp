@@ -3,7 +3,7 @@ job "easytravel_java_job" {
 
   group "weblauncher_java_group" {
     network {
-      mode = "host"
+      mode = "bridge"
       port "frontend" {
         static = 8094
         to = 8094
@@ -22,16 +22,13 @@ job "easytravel_java_job" {
         jar_path = "easytravel/com.dynatrace.easytravel.weblauncher.jar"
         args = [
           "-Xmx768m",
-          "-Dcom.dynatrace.easytravel.install.dir.correction=easytravel/",
+          "-Dcom.dynatrace.easytravel.install.dir.correction=./easytravel/",
           "-Dorg.eclipse.rap.rwt.enableUITests=true",
           "-Djava.security.auth.login.config=easytravel/resources/login-module.config"
         ]
       }
       artifact {
         source = "http://com.rfdinc.performance.static.content.s3.amazonaws.com/test/com.dynatrace.easytravel.weblauncher.jar"
-      }
-      env {
-        EASYTRAVEL_HOME = "${NOMAD_TASK_DIR}/easytravel"
       }
     }
   }

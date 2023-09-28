@@ -33,7 +33,7 @@ tls {
 datacenter = "dc1"
 
 # Logging Configurations
-log_level = "INFO"
+log_level = "DEBUG"
 log_file  = "/etc/nomad.d/java_docker_testing.client.log"
 
 server {
