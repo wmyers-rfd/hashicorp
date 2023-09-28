@@ -22,12 +22,11 @@ job "easytravel" {
           "-Xmx768m",
           "-Dcom.dynatrace.easytravel.install.dir.correction=easytravel/",
           "-Dorg.eclipse.rap.rwt.enableUITests=true",
-          "-Djava.security.auth.login.config=${EASYTRAVEL_HOME}/resources/login-module.config"
+          "-Djava.security.auth.login.config=easytravel/resources/login-module.config"
         ]
       }
       artifact {
         source = "http://com.rfdinc.performance.static.content.s3.amazonaws.com/test/com.dynatrace.easytravel.weblauncher.jar"
-
       }
       env {
         EASYTRAVEL_HOME = "${NOMAD_TASK_DIR}/easytravel"
