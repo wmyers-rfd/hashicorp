@@ -22,7 +22,7 @@ job "endlessloop_raw_exec_job" {
         ]
       }
       artifact {
-        source = "http://com.rfdinc.performance.static.content.s3.amazonaws.com/test/com.dynatrace.easytravel.weblauncher.jar"
+        source = "http://com.rfdinc.performance.static.content.s3.amazonaws.com/test/EndlessLoopWithWaitAndMethod.jar"
         destination = "local"
       }
     }
