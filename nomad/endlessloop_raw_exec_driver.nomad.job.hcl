@@ -17,7 +17,8 @@ job "endlessloop_raw_exec_job" {
       config {
         command = "/usr/bin/java"
         args = [
-          "-cp ${NOMAD_TASK_DIR}/EndlessLoopWithWaitAndMethod.jar",
+          "-cp",
+          "${NOMAD_TASK_DIR}/EndlessLoopWithWaitAndMethod.jar",
           "EndlessLoopWithWaitAndMethod"
         ]
       }
