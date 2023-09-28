@@ -1,7 +1,7 @@
-job "easytravel" {
+job "easytravel_raw_exec_job" {
   datacenters = ["dc1"]
 
-  group "weblauncher" {
+  group "weblauncher_raw_exec_group" {
     network {
       mode = "bridge"
       port "frontend" {
@@ -12,7 +12,7 @@ job "easytravel" {
         to = 8095
       }
     }
-    task "weblauncher" {
+    task "weblauncher_raw_exec_task" {
       driver = "raw_exec"
       config {
         command = "/usr/bin/java"
@@ -20,16 +20,14 @@ job "easytravel" {
           "-Xmx768m",
           "-Dcom.dynatrace.easytravel.install.dir.correction=easytravel/",
           "-Dorg.eclipse.rap.rwt.enableUITests=true",
-          "-Djava.security.auth.login.config=${EASYTRAVEL_HOME}/resources/login-module.config",
-          "-jar ./com.dynatrace.easytravel.weblauncher.jar"
+          "-Djava.security.auth.login.config=easytravel/resources/login-module.config",
+          "-jar=./com.dynatrace.easytravel.weblauncher.jar"
         ]
       }
       artifact {
         source = "http://com.rfdinc.performance.static.content.s3.amazonaws.com/test/com.dynatrace.easytravel.weblauncher.jar"
+        destination = "local"
 
-      }
-      env {
-        EASYTRAVEL_HOME = "${NOMAD_TASK_DIR}/easytravel"
       }
     }
   }
