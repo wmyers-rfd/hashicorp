@@ -1,9 +1,9 @@
-job "easytravel" {
+job "easytravel_java_job" {
   datacenters = ["dc1"]
 
-  group "weblauncher" {
+  group "weblauncher_java_group" {
     network {
-      mode = "bridge"
+      mode = "host"
       port "frontend" {
         static = 8094
         to = 8094
@@ -14,7 +14,7 @@ job "easytravel" {
         to = 8095
       }
     }
-    task "weblauncher" {
+    task "weblauncher_java_task" {
       driver = "java"
       config {
         class = "com.dynatrace.easytravel.weblauncher.RunLauncherTomcat"
